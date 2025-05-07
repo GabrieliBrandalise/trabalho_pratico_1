@@ -1,0 +1,62 @@
+CREATE TABLE cliente (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    cpf_cnpj VARCHAR(20) NOT NULL,
+    telefone VARCHAR(20),
+    endereco VARCHAR(200)
+);
+
+CREATE TABLE produto (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    tipo VARCHAR(50) NOT NULL,
+    preco DOUBLE PRECISION,
+    estoque DOUBLE PRECISION
+);
+
+CREATE TABLE pedido (
+    id SERIAL PRIMARY KEY,
+    cliente_id INTEGER NOT NULL,
+    data_pedido DATE NOT NULL,
+    status VARCHAR(20),
+    CONSTRAINT fk_pedido_cliente_id FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+);
+
+CREATE TABLE itens_pedido (
+    id SERIAL PRIMARY KEY,
+    pedido_id INTEGER NOT NULL,
+    produto_id INTEGER NOT NULL,
+    quantidade DOUBLE PRECISION,
+    preco_unitario DOUBLE PRECISION,
+    CONSTRAINT fk_itens_pedido_id FOREIGN KEY (pedido_id) REFERENCES pedido(id),
+    CONSTRAINT fk_itens_produto_id FOREIGN KEY (produto_id) REFERENCES produto(id)
+);
+
+CREATE TABLE aplicacao (
+    id SERIAL PRIMARY KEY,
+    pedido_id INTEGER NOT NULL,
+    data_aplicacao DATE,
+    local_aplicacao VARCHAR(200),
+    status_aplicacao VARCHAR(20) DEFAULT 'agendada',
+    CONSTRAINT fk_aplicacao_pedido_id FOREIGN KEY (pedido_id) REFERENCES pedido(id)
+);
+
+
+INSERT INTO cliente (nome, cpf_cnpj, telefone, endereco) VALUES
+('João da Silva', '123.456.789-00', '(11) 99999-0001', 'Fazenda Boa Esperança'),
+('Maria Oliveira', '987.654.321-00', '(11) 98888-0002', 'Fazenda Sol Nascente');
+
+INSERT INTO produto (nome, tipo, preco, estoque) VALUES
+('Calcário Dolomítico', 'calcário', 0.25, 10000.00),
+('Adubo NPK 04-14-08', 'adubo', 1.20, 5000.00),
+('Adubo Ureia', 'adubo', 1.50, 3000.00);
+
+INSERT INTO pedido (cliente_id, data_pedido, status) VALUES
+(1, '2025-05-02', 'reservado');
+
+INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES
+(1, 1, 15000.00, 0.25), 
+(1, 2, 500.00, 1.20); 
+
+INSERT INTO aplicacao (pedido_id, data_aplicacao, local_aplicacao, status_aplicacao) VALUES
+(1, '2025-05-05', 'Ipiranga do Sul - Salete, próximo à comunidade', 'agendada');
