@@ -9,7 +9,7 @@ rotasCliente.route('/cliente')
    .post(addCliente)
    .put(updateCliente)
 
-rotasProduto.route('/cliente/:id') 
+rotasCliente.route('/cliente/:id') 
    .get(getClientePorId)
    .delete(deleteCliente)
 
