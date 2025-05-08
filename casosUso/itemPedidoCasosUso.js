@@ -6,9 +6,8 @@ const getItensPedidoPorIdPedidoDB = async (id) => {
     try {           
         const results = await pool.query(`SELECT ip.id, ip.pedido_id, ip.produto_id, ip.quantidade, ip.preco_unitario 
                                             FROM itempedido as ip 
-                                            JOIN pedido as pe on ip.pedido_id = pe.id
-                                            WHERE pe.id = $1
-                                            ORDER BY id DESC `, [id]);
+                                            WHERE ip.pedido_id = $1
+                                            ORDER BY ip.id DESC `, [id]);
         if (results.rowCount == 0){
             throw "Nenhum item encontrado para o pedido de código: " + id;
         } else {
