@@ -1,4 +1,4 @@
-class ItensPedido{
+class ItemPedido{
     constructor(id, pedido_id, produto_id, quantidade, preco_unitario) {
        this.id = id;
        this.pedido_id = pedido_id;
@@ -8,4 +8,4 @@ class ItensPedido{
      }     
 }
 
-module.exports = ItensPedido;
+module.exports = ItemPedido;

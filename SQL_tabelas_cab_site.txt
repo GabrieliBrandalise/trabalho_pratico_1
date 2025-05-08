@@ -19,17 +19,17 @@ CREATE TABLE pedido (
     cliente_id INTEGER NOT NULL,
     data_pedido DATE NOT NULL,
     status VARCHAR(20),
-    CONSTRAINT fk_pedido_cliente_id FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+    CONSTRAINT fk_pedido_cliente_id FOREIGN KEY (cliente_id) REFERENCES cliente(id) ON DELETE CASCADE
 );
 
-CREATE TABLE itens_pedido (
+CREATE TABLE itempedido (
     id SERIAL PRIMARY KEY,
     pedido_id INTEGER NOT NULL,
     produto_id INTEGER NOT NULL,
     quantidade DOUBLE PRECISION,
     preco_unitario DOUBLE PRECISION,
-    CONSTRAINT fk_itens_pedido_id FOREIGN KEY (pedido_id) REFERENCES pedido(id),
-    CONSTRAINT fk_itens_produto_id FOREIGN KEY (produto_id) REFERENCES produto(id)
+    CONSTRAINT fk_item_pedido_id FOREIGN KEY (pedido_id) REFERENCES pedido(id) ON DELETE CASCADE,
+    CONSTRAINT fk_item_produto_id FOREIGN KEY (produto_id) REFERENCES produto(id) ON DELETE CASCADE
 );
 
 CREATE TABLE aplicacao (
@@ -38,9 +38,8 @@ CREATE TABLE aplicacao (
     data_aplicacao DATE,
     local_aplicacao VARCHAR(200),
     status_aplicacao VARCHAR(20) DEFAULT 'agendada',
-    CONSTRAINT fk_aplicacao_pedido_id FOREIGN KEY (pedido_id) REFERENCES pedido(id)
+    CONSTRAINT fk_aplicacao_pedido_id FOREIGN KEY (pedido_id) REFERENCES pedido(id) ON DELETE CASCADE
 );
-
 
 INSERT INTO cliente (nome, cpf_cnpj, telefone, endereco) VALUES
 ('João da Silva', '123.456.789-00', '(11) 99999-0001', 'Fazenda Boa Esperança'),
@@ -54,7 +53,7 @@ INSERT INTO produto (nome, tipo, preco, estoque) VALUES
 INSERT INTO pedido (cliente_id, data_pedido, status) VALUES
 (1, '2025-05-02', 'reservado');
 
-INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES
+INSERT INTO itempedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES
 (1, 1, 15000.00, 0.25), 
 (1, 2, 500.00, 1.20); 
 
