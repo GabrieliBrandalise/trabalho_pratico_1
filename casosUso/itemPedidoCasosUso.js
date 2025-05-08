@@ -12,7 +12,7 @@ const getItensPedidoPorIdPedidoDB = async (id) => {
         if (results.rowCount == 0){
             throw "Nenhum item encontrado para o pedido de código: " + id;
         } else {
-            const item = results.rows[0];
+            const item = results.rows;
             return new ItemPedido(item.id, item.pedido_id, item.produto_id, item.quantidade, item.preco_unitario, item.produto_nome);
         }       
     } catch (err) {
