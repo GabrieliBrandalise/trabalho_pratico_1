@@ -3,11 +3,11 @@ const Pedido = require('../entidade/pedido')
 
 const getPedidosDB = async () => {
     try {    
-        const { rows } = await pool.query(`SELECT pe.id, pe.cliente_id, to_char(pe.data_pedido,'YYYY-MM-DD') as data_pedido, pe.status, c.nome as cliente_nome, c.endereco as cliente_endereco, c.telefone as cliente_telefone
+        const { rows } = await pool.query(`SELECT pe.id, pe.cliente_id, to_char(pe.data_pedido,'YYYY-MM-DD') as data_pedido, pe.status, c.nome as cliente_nome, c.telefone as cliente_telefone
                                             FROM pedido as pe
                                             JOIN cliente as c on c.id = pe.cliente_id
                                             ORDER BY pe.id`);
-        return rows.map((pedido) => new Pedido(pedido.id, pedido.cliente_id, pedido.data_pedido, pedido.status, pedido.cliente_nome, pedido.cliente_endereco, pedido.cliente_telefone));        
+        return rows.map((pedido) => new Pedido(pedido.id, pedido.cliente_id, pedido.data_pedido, pedido.status, pedido.cliente_nome, pedido.cliente_telefone));        
     } catch (err) {
         throw "Erro : " + err;
     }
@@ -58,7 +58,7 @@ const deletePedidoDB = async (id) => {
 
 const getPedidoPorIdDB = async (id) => {
     try {           
-        const results = await pool.query(`SELECT pe.id, pe.cliente_id, to_char(pe.data_pedido,'YYYY-MM-DD') as data_pedido, pe.status, c.nome as cliente_nome, c.endereco as cliente_endereco, c.telefone as cliente_telefone
+        const results = await pool.query(`SELECT pe.id, pe.cliente_id, to_char(pe.data_pedido,'YYYY-MM-DD') as data_pedido, pe.status, c.nome as cliente_nome, c.telefone as cliente_telefone
                                             FROM pedido as pe
                                             JOIN cliente as c on c.id = pe.cliente_id
                                             WHERE pe.id = $1
@@ -67,7 +67,7 @@ const getPedidoPorIdDB = async (id) => {
             throw "Nenhum pedido encontrado com o código: " + id;
         } else {
             const pedido = results.rows[0];
-            return new Pedido(pedido.id, pedido.cliente_id, pedido.data_pedido, pedido.status, pedido.cliente_nome, pedido.cliente_endereco, pedido.cliente_telefone);
+            return new Pedido(pedido.id, pedido.cliente_id, pedido.data_pedido, pedido.status, pedido.cliente_nome, pedido.cliente_telefone);
         }       
     } catch (err) {
         throw "Erro ao recuperar o pedido: " + err;
