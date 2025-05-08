@@ -60,3 +60,5 @@ INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco_unitario) VAL
 
 INSERT INTO aplicacao (pedido_id, data_aplicacao, local_aplicacao, status_aplicacao) VALUES
 (1, '2025-05-05', 'Ipiranga do Sul - Salete, próximo à comunidade', 'agendada');
+
+

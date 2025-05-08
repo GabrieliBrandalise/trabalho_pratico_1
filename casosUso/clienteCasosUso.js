@@ -60,7 +60,7 @@ const getClientePorIdDB = async (id) => {
             throw "Nenhum registro de cliente encontrado com o código: " + id;
         } else {
             const cliente = results.rows[0];
-            return new Cliente();
+            return new Cliente(cliente.id, cliente.nome, cliente.cpf_cnpj, cliente.telefone, cliente.endereco);
         }       
     } catch (err) {
         throw "Erro ao recuperar o cliente: " + err;
