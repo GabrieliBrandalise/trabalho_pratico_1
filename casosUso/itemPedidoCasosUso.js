@@ -4,17 +4,12 @@ const ItemPedido = require('../entidade/itempedido');
 
 const getItensPedidoPorIdPedidoDB = async (id) => {
     try {           
-        const results = await pool.query(`SELECT ip.id, ip.pedido_id, ip.produto_id, ip.quantidade, ip.preco_unitario, p.nome as produto_nome 
+        const { rows } = await pool.query(`SELECT ip.id, ip.pedido_id, ip.produto_id, ip.quantidade, ip.preco_unitario, p.nome as produto_nome 
                                             FROM itempedido as ip 
                                             JOIN produto as p on p.id = ip.produto_id
                                             WHERE ip.pedido_id = $1
                                             ORDER BY ip.id DESC `, [id]);
-        if (results.rowCount == 0){
-            throw "Nenhum item encontrado para o pedido de código: " + id;
-        } else {
-            const item = results.rows;
-            return new ItemPedido(item.id, item.pedido_id, item.produto_id, item.quantidade, item.preco_unitario, item.produto_nome);
-        }       
+       return rows.map((item) => new ItemPedido(item.id, item.pedido_id, item.produto_id, item.quantidade, item.preco_unitario, item.produto_nome));            
     } catch (err) {
         throw "Erro ao recuperar os itens do pedido: " + err;
     }     
