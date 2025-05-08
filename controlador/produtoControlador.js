@@ -45,11 +45,14 @@ const deleteProduto = async (request, response) => {
             status: 'error',
             message: 'Não é possível excluir este produto porque ele está vinculado a um ou mais pedidos.'
         });
-    }})
-    .catch(err => response.status(400).json({
-        status: 'error',
-        message: err
-    }));
+    }
+    else {
+       return response.status(400).json({
+            status: 'error',
+            message: err
+        });
+    }
+    });
 }
 
 const getProdutoPorId = async (request, response) => {
