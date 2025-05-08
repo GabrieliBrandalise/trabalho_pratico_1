@@ -39,7 +39,7 @@ const updateItensDB = async (body) => {
             throw `Nenhum item encontrado com o código ${id} para ser alterado`;
         }
         const item = results.rows[0];
-        return new ItemPedido(item.id, item.pedido_id, item.produto_id, item.quantidade, item.preco_unitario);
+        return new ItemPedido(item.id, item.pedido_id, item.produto_id, item.quantidade, item.preco_unitario, "");
     } catch (err) {
         throw "Erro ao alterar o item: " + err;
     }      
