@@ -13,7 +13,7 @@ const addItem = async (request, response) => {
 }
 
 const updateItem = async (request, response) => {
-    await updateItemDB(request.body)
+    await updateItensDB(request.body)
         .then(data => response.status(200).json({
             status: "success", message: "Item alterado com sucesso.",
             objeto: data
