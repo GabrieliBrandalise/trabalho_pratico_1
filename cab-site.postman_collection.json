@@ -1,0 +1,564 @@
+{
+	"info": {
+		"_postman_id": "61bf9094-e7b0-446c-bdea-03b1ccd28155",
+		"name": "cab-site",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43548169"
+	},
+	"item": [
+		{
+			"name": "getProduto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/produto",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProdutoByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/produto/3",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"produto",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProduto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/produto/3",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"produto",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addProduto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Calcário Calcítico\",\r\n    \"tipo\": \"calcário\",\r\n    \"preco\": 75,\r\n    \"estoque\": 160\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/produto",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"id\": 4,\r\n        \"nome\": \"Calcário Calcítico alterado\",\r\n        \"tipo\": \"calcário\",\r\n        \"preco\": 75,\r\n        \"estoque\": 160000\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/produto",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/cliente",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClienteById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/cliente/2",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"cliente",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/cliente/2",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"cliente",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"Maria Oliveira\",\r\n        \"cpf_cnpj\": \"987.654.321-00\",\r\n        \"telefone\": \"(11) 98888-0002\",\r\n        \"endereco\": \"Fazenda Sol Nascente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/cliente",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 3,\r\n        \"nome\": \"Maria Oliveira - alterado\",\r\n        \"cpf_cnpj\": \"987.654.321-00\",\r\n        \"telefone\": \"(11) 98888-0002\",\r\n        \"endereco\": \"Fazenda Sol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/cliente",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/pedido",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPedidoById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/pedido/3",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"pedido",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePedido",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/pedido/2",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"pedido",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"cliente_id\": 1,\r\n        \"data_pedido\": \"2025-07-10\",\r\n        \"status\": \"reservado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/pedido",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 1,\r\n        \"cliente_id\": 1,\r\n        \"data_pedido\": \"2025-05-04\",\r\n        \"status\": \"reservado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/pedido",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addAplicacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"cliente_id\": 1,\r\n        \"data_pedido\": \"2025-05-02\",\r\n        \"status\": \"reservado\",\r\n        \"cliente_nome\": \"João da Silva - alterado\",\r\n        \"cliente_telefone\": \"(11) 99999-0001\"\r\n}"
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/aplicacao",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"aplicacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAplicacao",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"cliente_id\": 1,\r\n        \"data_pedido\": \"2025-05-02\",\r\n        \"status\": \"reservado\",\r\n        \"cliente_nome\": \"João da Silva - alterado\",\r\n        \"cliente_telefone\": \"(11) 99999-0001\"\r\n}"
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/aplicacao/1",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"aplicacao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAplicacao",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"cliente_id\": 1,\r\n        \"data_pedido\": \"2025-05-02\",\r\n        \"status\": \"reservado\",\r\n        \"cliente_nome\": \"João da Silva - alterado\",\r\n        \"cliente_telefone\": \"(11) 99999-0001\"\r\n}"
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/aplicacao/1",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"aplicacao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAplicacao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/agendamento",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"agendamento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addItemPedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"pedido_id\": 1,\r\n        \"produto_id\": 2,\r\n        \"quantidade\": 500,\r\n        \"preco_unitario\": 1.2\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/itens",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"itens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItensByPedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/itens/1",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"itens",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteItemPedido",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/itens/1",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"itens",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateItemPedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"pedido_id\": 1,\r\n  \"produto_id\": 1,\r\n  \"quantidade\": 200,\r\n  \"preco_unitario\": 1.5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cab-u0vk.onrender.com/itens",
+					"protocol": "https",
+					"host": [
+						"cab-u0vk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"itens"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
