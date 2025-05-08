@@ -8,7 +8,7 @@ const getAplicacaoDB = async () => {
                                             FROM aplicacao as a 
                                             JOIN pedido as pe on a.pedido_id = pe.id
                                             JOIN cliente as c on pe.cliente_id = c.id
-                                            JOIN itens_pedido as ip on pe.id = ip.pedido_id
+                                            JOIN itempedido as ip on pe.id = ip.pedido_id
                                             JOIN produto as p on p.id = ip.produto_id
                                             GROUP BY a.id, c.telefone, c.nome, p.nome, ip.quantidade
                                             ORDER BY data_aplicacao DESC`);
