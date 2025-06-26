@@ -13,7 +13,7 @@ const login = async (request, response) => {
         .catch(err => response.status(401).json({ auth: false, message: err }));
 }
 
-const logon = async (request, response) => {
+const createAccount = async (request, response) => {
     await addUsuarioDB(request.body)
         .then(data => response.status(200).json({
             status: "success", message: "Usuário cadastrado com sucesso.",
@@ -50,5 +50,5 @@ function verificaJWT(request, response, next) {
 }
 
 module.exports = {
-    login, verificaJWT, logon, updateUsuario
+    login, verificaJWT, createAccount, updateUsuario
 }

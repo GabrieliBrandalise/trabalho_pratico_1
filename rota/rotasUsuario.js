@@ -1,13 +1,14 @@
 const { Router } = require('express');
-const {login, logon} = require('../controlador/segurancaControlador');
+const {login, createAccount, updateUsuario} = require('../controlador/segurancaControlador');
 
 const rotasUsuario = new Router();
 
 rotasUsuario.route('/login')
    .post(login)
+   .put(updateUsuario)
 
-
-rotasUsuario.route('/logon')
-   .post(logon)
+rotasUsuario.route('/createaccount')
+   .post(createAccount)
+   
 
 module.exports = { rotasUsuario };
