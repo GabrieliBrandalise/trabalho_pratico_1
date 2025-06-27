@@ -36,7 +36,7 @@ const updateUsuarioDB = async (body) => {
         const { id, email, nome, tipo, senha, telefone }  = body; 
         const results = await pool.query(`UPDATE usuario SET email = $2, nome = $3 , tipo = $4, telefone = $5 WHERE id = $1 
         returning id, email, nome, tipo, senha, telefone`,
-        [email, nome, tipo, senha, telefone]);        
+        [id, email, nome, tipo, senha, telefone]);        
         if (results.rowCount == 0){
             throw `Nenhum usuário encontrado com o ID ${id} para ser alterado`;
         }
